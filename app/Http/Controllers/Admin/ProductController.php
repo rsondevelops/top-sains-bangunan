@@ -144,7 +144,7 @@ class ProductController extends Controller
         // Gambar utama
         if ($request->hasFile('image')) {
             if ($product->image) Storage::disk('public')->delete($product->image);
-            $fields['image'] = $request->file('image')->store('products', 'public');
+            $fields['image'] = store_webp($request->file('image'), 'products', 1200);
         } elseif ($request->boolean('remove_image') && $product->image) {
             Storage::disk('public')->delete($product->image);
             $fields['image'] = null;
@@ -163,7 +163,7 @@ class ProductController extends Controller
         foreach ((array) $request->file('gallery', []) as $file) {
             ProductImage::create([
                 'product_id' => $product->id,
-                'path'       => $file->store('products', 'public'),
+                'path' => store_webp($file, 'products', 1200),
                 'sort_order' => ++$next,
             ]);
         }

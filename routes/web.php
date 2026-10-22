@@ -1,22 +1,14 @@
 <?php
 
 use App\Http\Controllers\{ArticleController, LeadController, PageController, ProjectController, RecommendationController, SolutionController};
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\{ ArticleController as AdminArticleController, BrandController as AdminBrandController, CategoryController as AdminCategoryController, LeadController as AdminLeadController, ProjectController as AdminProjectController, SettingController, TestimonialController as AdminTestimonialController };
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
-
-use App\Http\Controllers\Admin\{
-    ArticleController as AdminArticleController,
-    BrandController as AdminBrandController,
-    CategoryController as AdminCategoryController,
-    LeadController as AdminLeadController,
-    ProjectController as AdminProjectController,
-    SettingController,
-    TestimonialController as AdminTestimonialController
-};
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Middleware\ClearSiteCache;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,7 +48,7 @@ Route::get('/login', [AuthController::class, 'show'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1');
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::middleware('auth')->prefix('dashboard')->name('admin.')->group(function () {
+Route::middleware(['auth', ClearSiteCache::class])->prefix('dashboard')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', AdminProductController::class)->except('show');
     Route::resource('categories', AdminCategoryController::class)->except('show');

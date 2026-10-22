@@ -52,5 +52,11 @@ class DatabaseSeeder extends Seeder
                 'is_best_seller' => true, 'sort_order' => $i,
             ]);
         }
+
+        User::create([
+            'name' => 'Admin Top Sains Bangunan',
+            'email' => 'admin@gmail.com',
+            'password' => 'password'
+        ]);
     }
 }

@@ -92,7 +92,7 @@ class ProjectController extends Controller
             }
         }
         foreach ((array) $r->file('gallery', []) as $file) {
-            $gallery->push($file->store('projects', 'public'));
+            $gallery->push(store_webp($file, 'projects'));
         }
 
         $m->fill([

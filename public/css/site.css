@@ -1,3 +1,5 @@
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/instrument-sans-latin-wght-normal.woff2') format('woff2')}
+
 :root{
   --primary:#4E3A79;
   --on-primary:#fff;
@@ -232,3 +234,27 @@ a:hover .proj-img img{transform:scale(1.03)}
 .prose a{color:var(--primary);text-decoration:underline}
 .prose img{height:auto;border-radius:var(--radius)}
 .prose blockquote{border-left:2px solid var(--ink);padding-left:1.25rem;color:var(--muted)}
+
+/* fokus keyboard yang jelas */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:2px}
+
+/* iOS Safari zoom otomatis saat input berfont di bawah 16px */
+@media(max-width:767px){
+  .filter-bar input,.filter-bar select,.field input,.field select,.field textarea{font-size:16px}
+}
+
+/* aksesibilitas: area tap minimal nyaman di mobile */
+@media(max-width:991px){
+  .menu-btn,.btn-main,.btn-line{min-height:44px}
+}
+
+/* carousel best seller: tampil lebih lega di layar besar */
+@media(min-width:992px){
+  .hscroll>*{flex-basis:300px}
+}
+
+
+/* 404 */
+.nf-search{display:flex;gap:.5rem;max-width:30rem}
+.nf-search input{flex:1;min-width:0;padding:.8rem 1rem;border:1px solid var(--line);border-radius:var(--radius);font:inherit;font-size:16px;color:var(--ink)}
+.nf-search input:focus{outline:2px solid var(--primary);outline-offset:-1px}
