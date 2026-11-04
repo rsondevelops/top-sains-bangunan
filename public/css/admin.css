@@ -73,7 +73,7 @@ body.adm-body{background:var(--bg);color:var(--text);font-family:var(--font);fon
 .adm-body .btn-dark{--bs-btn-bg:var(--primary);--bs-btn-border-color:var(--primary);--bs-btn-color:#fff;--bs-btn-hover-bg:var(--primary-600);--bs-btn-hover-border-color:var(--primary-600);--bs-btn-hover-color:#fff;--bs-btn-active-bg:var(--primary-600);--bs-btn-active-border-color:var(--primary-600);--bs-btn-active-color:#fff;box-shadow:0 1px 2px rgba(124,58,237,.25); color:#fff !important}
 .adm-body .btn-outline-dark,.adm-body .btn-outline-secondary{--bs-btn-color:var(--text-2);--bs-btn-border-color:var(--border);--bs-btn-bg:#fff;--bs-btn-hover-bg:#f4f4f6;--bs-btn-hover-border-color:#d9d9e0;--bs-btn-hover-color:var(--text);--bs-btn-active-bg:#f4f4f6;--bs-btn-active-border-color:#d9d9e0;--bs-btn-active-color:var(--text);box-shadow:var(--shadow)}
 .adm-body .btn-outline-danger{--bs-btn-color:var(--bad);--bs-btn-border-color:var(--border);--bs-btn-bg:#fff;--bs-btn-hover-bg:var(--bad-bg);--bs-btn-hover-border-color:#fecaca;--bs-btn-hover-color:var(--bad);--bs-btn-active-bg:var(--bad-bg);--bs-btn-active-color:var(--bad)}
-.adm-body .btn-success{--bs-btn-bg:var(--ok);--bs-btn-border-color:var(--ok);--bs-btn-hover-bg:#15803d;--bs-btn-hover-border-color:#15803d}
+.adm-body .btn-success{--bs-btn-bg:var(--ok);--bs-btn-border-color:var(--ok);--bs-btn-hover-bg:#15803d;--bs-btn-hover-border-color:#15803d; color:#fff}
 .adm-body .btn-link{color:var(--muted);text-decoration:none}
 
 /* ============ FORMS ============ */
@@ -189,3 +189,43 @@ a.kpi:hover{border-color:#d4c5fb;transform:translateY(-1px)}
 .login-card p{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+/* ============ SELECT UNIVERSAL (non-Select2) ============ */
+.adm-body select,
+.adm-body .form-select{
+  -webkit-appearance:none;appearance:none;
+  background-color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right .75rem center;
+  background-size:16px;
+  padding-right:2.25rem;
+  border:1px solid var(--border);
+  border-radius:9px;
+  color:var(--text);
+  font-size:.875rem;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:border-color .15s,box-shadow .15s;
+}
+.adm-body select:hover{border-color:#d4d4dc}
+.adm-body select:focus,
+.adm-body .form-select:focus{
+  outline:0;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(124,58,237,.15);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+.adm-body select.form-select-sm{padding:.3rem 2rem .3rem .65rem;font-size:.8rem;border-radius:8px;background-position:right .55rem center;background-size:14px}
+.adm-body select.is-invalid{border-color:var(--bad)}
+.adm-body select:disabled{background-color:#f4f4f6;color:var(--muted);cursor:not-allowed}
+.adm-body select option:checked{background:var(--primary);color:#fff}
+
+select{accent-color:var(--primary);color-scheme:light}
+select option:hover,
+select option:focus,
+select option:active{
+  background:var(--primary) linear-gradient(0deg,var(--primary),var(--primary));
+  color:#fff;
+}

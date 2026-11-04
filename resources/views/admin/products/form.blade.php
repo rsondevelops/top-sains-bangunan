@@ -214,9 +214,12 @@
     const box = document.getElementById('specs');
     document.getElementById('addSpec').onclick = () => box.append(document.getElementById('specRow').content.cloneNode(true));
     box.addEventListener('click', e => { if (e.target.matches('[data-rm]')) e.target.closest('.spec-row').remove(); });
+
     document.getElementById('relFilter').addEventListener('input', e => {
-        const v = e.target.value.toLowerCase();
-        document.querySelectorAll('.rel-item').forEach(el => el.style.display = el.textContent.toLowerCase().includes(v) ? '' : 'none');
+        const v = e.target.value.trim().toLowerCase();
+        document.querySelectorAll('.rel-item').forEach(el => {
+            el.classList.toggle('d-none', v !== '' && !el.textContent.toLowerCase().includes(v));
+        });
     });
 </script>
 @endpush

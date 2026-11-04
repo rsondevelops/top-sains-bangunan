@@ -14,7 +14,7 @@
             @if(setting('maps_embed'))
                 <iframe src="{{ setting('maps_embed') }}" title="Lokasi Top Sains Bangunan di Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             @else
-                <span class="ph">[ISI GOOGLE MAPS EMBED]</span>
+                <span class="ph"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.456799313313!2d106.83067260838857!3d-6.637962271240364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c9c41bcc1e89%3A0x235274227349a04c!2sTOP%20SAINS%20BANGUNAN!5e0!3m2!1sid!2sid!4v1793273671752!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></span>
             @endif
         </div>
     </div>

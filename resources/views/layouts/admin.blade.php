@@ -28,6 +28,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}?v={{ filemtime(public_path('css/admin.css')) }}" rel="stylesheet">
 </head>
 <body class="adm-body">
@@ -72,19 +75,26 @@
         </header>
 
         <main class="main">
-            @if(session('ok'))<div class="alert alert-success alert-dismissible fade show">{{ session('ok') }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>@endif
-            @if(session('err'))<div class="alert alert-danger alert-dismissible fade show">{{ session('err') }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>@endif
+            <script>
+                @if(session('ok'))window.__flash = {icon: 'success', title: @json(session('ok'))};
+                @elseif(session('err'))window.__flash = {icon: 'error', title: @json(session('err'))};
+                @endif
+            </script>
             @yield('content')
         </main>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const b = document.body;
     document.getElementById('menuBtn').addEventListener('click', () => b.classList.toggle('nav-open'));
     document.getElementById('scrim').addEventListener('click', () => b.classList.remove('nav-open'));
 </script>
+<script src="{{ asset('js/admin.js') }}?v={{ filemtime(public_path('js/admin.js')) }}"></script>
 @stack('scripts')
 </body>
 </html>

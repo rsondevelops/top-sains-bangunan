@@ -33,7 +33,7 @@
             @if($l->source_page)<dt class="col-sm-3">Dari halaman</dt><dd class="col-sm-9">/{{ $l->source_page }}</dd>@endif
         </dl>
 
-        <div class="d-flex gap-2 mt-3 pt-3 border-top">
+        <div class="mt-3 pt-3 border-top d-flex flex-wrap justify-content-between gap-2">
             <form method="post" action="{{ route('admin.leads.update', $l) }}" class="d-flex gap-2">
                 @csrf @method('PUT')
                 <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
@@ -42,9 +42,9 @@
                     @endforeach
                 </select>
             </form>
-            <form method="post" action="{{ route('admin.leads.destroy', $l) }}" onsubmit="return confirm('Hapus lead ini?')">
+            <form method="post" action="{{ route('admin.leads.destroy', $l) }}" class="text-end" onsubmit="return confirm('Hapus lead ini?')">
                 @csrf @method('DELETE')
-                <button class="btn btn-sm btn-outline-danger">Hapus</button>
+                <button class="btn btn-outline-danger">Hapus</button>
             </form>
         </div>
     </div>
