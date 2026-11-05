@@ -9,7 +9,8 @@
 <header class="site-header">
     <div class="container bar">
         <a href="/" class="brand" aria-label="Top Sains Bangunan">
-            <img src="{{ asset('img/logo.svg') }}" alt="Top Sains Bangunan" height="34">
+            <img src="{{ asset('img/logo.png') }}" alt="" width="34" height="34">
+            <span class="brand-name"><b>Top Sains</b> Bangunan</span>
         </a>
 
         <nav class="nav-d d-none d-lg-flex" aria-label="Navigasi utama">

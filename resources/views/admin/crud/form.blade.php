@@ -9,7 +9,7 @@
 
 @if($errors->any())<div class="alert alert-danger">Ada isian yang perlu diperbaiki. Lihat pesan merah di bawah.</div>@endif
 
-<form method="post" enctype="multipart/form-data" class="bg-white border rounded p-3 p-md-4" style="max-width:820px"
+<form method="post" enctype="multipart/form-data" class="bg-white border rounded p-3 p-md-4"
       action="{{ $model->exists ? route($base.'.update', $model) : route($base.'.store') }}">
     @csrf
     @if($model->exists) @method('PUT') @endif

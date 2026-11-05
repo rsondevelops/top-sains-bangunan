@@ -43,7 +43,6 @@ h1,h2,h3,h4{font-weight:600;letter-spacing:-.025em;line-height:1.08}
 /* header */
 .site-header{position:sticky;top:0;z-index:1030;background:#fff;border-bottom:1px solid var(--line)}
 .site-header .bar{height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.brand img{height:34px;width:auto;display:block}
 .nav-d{display:flex;gap:1.75rem}
 .nav-d a{font-size:.92rem;font-weight:500;padding:.4rem 0;border-bottom:1px solid transparent}
 .nav-d a:hover{border-color:var(--ink)}
@@ -142,14 +141,13 @@ a:hover .proj-img img{transform:scale(1.03)}
 .info-row{padding:1rem 0;border-top:1px solid var(--line)}
 .info-row .eyebrow{margin-bottom:.25rem}
 
-/* footer */
+/* footer *//* footer */
 .site-footer{background:var(--ink);color:rgba(255,255,255,.72);padding:4rem 0 2rem;font-size:.95rem}
 .site-footer h4{color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
 .site-footer a:hover{color:#fff}
 .site-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
 .site-footer .brand img{filter:brightness(0) invert(1)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:3rem;padding-top:1.5rem;font-size:.85rem}
-
 /* reveal */
 .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .js .reveal.in{opacity:1;transform:none}
@@ -258,3 +256,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .nf-search{display:flex;gap:.5rem;max-width:30rem}
 .nf-search input{flex:1;min-width:0;padding:.8rem 1rem;border:1px solid var(--line);border-radius:var(--radius);font:inherit;font-size:16px;color:var(--ink)}
 .nf-search input:focus{outline:2px solid var(--primary);outline-offset:-1px}
+
+/* brand: logo + nama */
+.brand{display:inline-flex;align-items:center;gap:.65rem;flex:none}
+.brand img{height:34px;width:auto;display:block}
+.brand-name{font-size:1.1rem;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink);white-space:nowrap}
+.brand-name b{font-weight:700;letter-spacing:-.03em}
+.site-footer .brand-name{color:#fff}
+@media(max-width:380px){.brand-name{font-size:.98rem}}

@@ -2,7 +2,10 @@
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-4">
-                <a href="/" class="brand d-inline-block mb-3"><img src="{{ asset('img/logo.svg') }}" alt="Top Sains Bangunan" height="34"></a>
+                <a href="/" class="brand d-inline-flex mb-3" aria-label="Top Sains Bangunan">
+                    <img src="{{ asset('img/logo.png') }}" alt="" width="34" height="34">
+                    <span class="brand-name"><b>Top Sains</b> Bangunan</span>
+                </a>
                 <p style="max-width:22rem">Toko sanitary dan perlengkapan kamar mandi di Bogor. Melayani kebutuhan rumah, renovasi, dan proyek di Bogor, Jakarta, BSD, dan sekitarnya.</p>
             </div>
             <div class="col-6 col-lg-2">
