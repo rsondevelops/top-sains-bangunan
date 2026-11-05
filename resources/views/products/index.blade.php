@@ -26,6 +26,7 @@
         <div class="row g-4 align-items-end mt-3 mb-4">
             <div class="col-lg-7">
                 <h1 class="h-section">{{ $heading }}</h1>
+                <p class="text-muted mb-4">Produk di sini hanya yang paling banyak dicari. Untuk daftar lengkap, buka <a href="/katalog-pricelist" class="link-arrow">Pricelist &amp; Katalog</a>.</p>
                 @if($category?->description)<p class="lead-t mt-3 mb-0">{{ $category->description }}</p>@endif
             </div>
             <div class="col-lg-5 text-lg-end">
@@ -94,6 +95,7 @@
             <div class="d-flex flex-wrap gap-2">
                 <a href="/bantu-memilih" class="btn-line">Bantu Saya Memilih</a>
                 <a href="{{ wa_url('Halo Top Sains, saya ingin berkonsultasi memilih produk sanitary.') }}" target="_blank" rel="noopener" class="btn-main">Konsultasi via WhatsApp</a>
+                <a href="/katalog-pricelist" class="btn-line">Lihat Pricelist &amp; Katalog</a>
             </div>
         </div>
     </div>

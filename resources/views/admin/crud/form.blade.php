@@ -55,7 +55,21 @@
                     @endif
                     <input id="f-{{ $n }}" type="file" name="gallery[]" accept="image/*" multiple class="form-control @error('gallery.*') is-invalid @enderror">
                     @error('gallery.*')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
+                @elseif($t === 'select')
+                    <select id="f-{{ $n }}" name="{{ $n }}" class="form-select @error($n) is-invalid @enderror">
+                        @foreach($f['options'] as $k => $label)
+                            <option value="{{ $k }}" @selected((string) $v === (string) $k)>{{ $label }}</option>
+                        @endforeach
+                    </select>
 
+                @elseif($t === 'pdf')
+                    @if($model->{$n})
+                        <div class="mb-2 small">
+                            <a href="{{ asset('storage/'.$model->{$n}) }}" target="_blank" rel="noopener">Lihat file saat ini ↗</a>
+                            <label class="d-block mt-1"><input type="checkbox" name="remove_{{ $n }}" value="1"> Hapus file ini</label>
+                        </div>
+                    @endif
+                    <input id="f-{{ $n }}" type="file" name="{{ $n }}" accept="application/pdf" class="form-control @error($n) is-invalid @enderror">
                 @else
                     <input id="f-{{ $n }}" type="{{ $t }}" name="{{ $n }}" value="{{ $v }}" class="form-control @error($n) is-invalid @enderror" @if($f['required'] ?? false) required @endif>
                 @endif

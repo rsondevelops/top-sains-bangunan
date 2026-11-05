@@ -36,7 +36,23 @@
             </div>
         </div>
         @endif
-
+        @isset($page['faq'])
+        <div class="mt-5 pt-5 border-top">
+            <h2 class="h-section mb-4" style="font-size:clamp(1.75rem,3vw,2.4rem)">Pertanyaan yang sering diajukan</h2>
+            @foreach($page['faq'] as [$q, $a])
+                <details class="faq"><summary>{{ $q }}</summary><p>{{ $a }}</p></details>
+            @endforeach
+        </div>
+        @push('head')
+        <script type="application/ld+json">{!! json_encode([
+            '@context' => 'https://schema.org', '@type' => 'FAQPage',
+            'mainEntity' => collect($page['faq'])->map(fn ($f) => [
+                '@type' => 'Question', 'name' => $f[0],
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]],
+            ])->all(),
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>
+        @endpush
+        @endisset
         <div class="mt-5 pt-5 border-top"><x-showroom /></div>
     </div>
 </section>

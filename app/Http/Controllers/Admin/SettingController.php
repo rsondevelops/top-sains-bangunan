@@ -20,6 +20,7 @@ class SettingController extends Controller
         'year_established'  => ['Tahun berdiri (opsional)', 'text', 'Isi hanya jika sudah pasti. Kosong = tidak ditampilkan.'],
         'about_story'       => ['Cerita Top Sains (halaman Tentang Kami)', 'textarea', 'Sejarah, siapa yang mengelola, fokus bisnis. Isi fakta saja.'],
         'aftersales_points' => ['Layanan after-sales', 'textarea', 'Satu layanan per baris. Tampil sebagai daftar bernomor di homepage dan halaman After Sales.'],
+        'dealer_label' => ['Status dealer (opsional)', 'text', 'Contoh: Dealer resmi TOTO. ISI HANYA jika ada bukti tertulis dari TOTO. Kosong = tidak ditampilkan di mana pun.'],
     ];
 
     public function index()
@@ -46,6 +47,7 @@ class SettingController extends Controller
             'year_established'  => 'nullable|integer|between:1900,' . date('Y'),
             'about_story'       => 'nullable|string|max:5000',
             'aftersales_points' => 'nullable|string|max:2000',
+            'dealer_label' => 'nullable|string|max:80',
         ], id_messages() + [
             'starts_with' => 'Embed harus dari Google Maps (Bagikan > Sematkan peta).',
             'between'     => ':attribute tidak valid.',

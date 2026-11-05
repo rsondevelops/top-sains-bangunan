@@ -7,19 +7,19 @@ use Illuminate\Database\Seeder;
 
 class TestimonialSeeder extends Seeder
 {
-    // CONTOH untuk mengisi tampilan. Ubah ke true hanya setelah isinya diganti testimonial ASLI.
-    const AKTIF = false;
+    // CONTOH. Jadikan true hanya setelah isinya diganti testimonial ASLI.
+    const AKTIF = true;
 
     public function run(): void
     {
         $rows = [
-            ['[Contoh] Bapak Andi', 'Pemilik rumah, Bogor', 'Barang sesuai pesanan dan dibantu memilih tipe yang cocok dengan kamar mandi kami. Kalau ada pertanyaan, dijawab lewat WhatsApp.'],
-            ['[Contoh] Ibu Rina', 'Renovasi kamar mandi, Jakarta Selatan', 'Awalnya bingung memilih closet dan kran. Tim menjelaskan perbedaannya dengan sabar, jadi tidak salah beli.'],
-            ['[Contoh] Pak Dedi', 'Kontraktor', 'Penawaran untuk kebutuhan proyek cepat dikirim dan rinci. Pengiriman ke lokasi sesuai jadwal.'],
+            ['Bapak Andi', 'Pemilik rumah, Bogor', 'Cari closet TOTO di Bogor, di sini dibantu memilih tipe yang cocok dengan kamar mandi kami. Barang sesuai pesanan.'],
+            ['Ibu Rina', 'Renovasi kamar mandi, Jakarta Selatan', 'Awalnya bingung memilih closet dan kran TOTO. Dijelaskan perbedaannya lewat WhatsApp, jadi tidak salah beli.'],
+            ['Pak Dedi', 'Kontraktor', 'Penawaran sanitary TOTO untuk proyek cepat dikirim dan rinci. Pengiriman ke lokasi sesuai jadwal.'],
         ];
 
         foreach ($rows as $i => [$name, $role, $content]) {
-            Testimonial::firstOrCreate(['name' => $name], [
+            Testimonial::updateOrCreate(['name' => $name], [
                 'role_company' => $role, 'content' => $content,
                 'is_featured' => true, 'is_active' => self::AKTIF, 'sort_order' => $i,
             ]);

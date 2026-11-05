@@ -25,6 +25,7 @@
                     <li><a href="/after-sales">After Sales</a></li>
                     <li><a href="/artikel">Artikel</a></li>
                     <li><a href="/tentang-kami">Tentang Kami</a></li>
+                    <li><a href="/katalog-pricelist">Pricelist &amp; Katalog</a></li>
                     <li><a href="/sanitary-bogor">Sanitary Bogor</a></li>
                     <li><a href="/toto-bogor">TOTO Bogor</a></li>
                     <li><a href="/sanitary-jakarta">Sanitary Jakarta</a></li>

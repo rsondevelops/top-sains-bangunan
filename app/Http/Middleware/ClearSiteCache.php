@@ -14,7 +14,7 @@ class ClearSiteCache
 
         // Setiap simpan/ubah/hapus di admin: buang cache agar website langsung up-to-date
         if (! $request->isMethod('GET')) {
-            foreach (['home', 'sitemap', 'settings'] as $key) {
+            foreach (['home', 'sitemap', 'settings', 'downloads_cta'] as $key) {
                 Cache::forget($key);
             }
         }

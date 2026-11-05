@@ -78,7 +78,7 @@
                     <p class="small text-muted mb-4">Harga dan ketersediaan dapat berubah. Konfirmasi ke tim Top Sains sebelum membeli.</p>
 
                     <a href="{{ product_wa($product) }}" target="_blank" rel="noopener" class="btn-main w-100 justify-content-center mb-4">Tanya Harga &amp; Ketersediaan</a>
-
+                    <a href="/katalog-pricelist" class="link-arrow d-inline-block mb-4">Lihat pricelist &amp; katalog TOTO</a>
                     <div class="info-row d-flex justify-content-between"><span class="text-muted">SKU</span><span>{{ $product->sku ?: '-' }}</span></div>
                     @if($product->brand)
                         <div class="info-row d-flex justify-content-between"><span class="text-muted">Brand</span><a href="/brand/{{ $product->brand->slug }}">{{ $product->brand->name }}</a></div>

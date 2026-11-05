@@ -1,6 +1,6 @@
 @php
     $nav = [
-        'Produk' => '/produk', 'Solusi' => '/solusi/proyek', 'Project' => '/project',
+        'Produk' => '/produk', 'Pricelist' => '/katalog-pricelist', 'Solusi' => '/solusi/proyek', 'Project' => '/project', 
         'After Sales' => '/after-sales', 'Artikel' => '/artikel', 'Tentang Kami' => '/tentang-kami',
     ];
     $waGeneral = wa_url('Halo Top Sains, saya ingin bertanya tentang produk sanitary.');

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\DownloadController as AdminDownloadController;
 use App\Http\Middleware\ClearSiteCache;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,7 @@ Route::get('/kontak', [PageController::class, 'contact']);
 Route::get('/{slug}', [PageController::class, 'local'])
     ->whereIn('slug', ['sanitary-bogor', 'toto-bogor', 'sanitary-jakarta', 'sanitary-bsd']);
 
+Route::get('/katalog-pricelist', [PageController::class, 'downloads']);
 
 Route::get('/login', [AuthController::class, 'show'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1');
@@ -52,6 +54,7 @@ Route::middleware(['auth', ClearSiteCache::class])->prefix('dashboard')->name('a
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', AdminProductController::class)->except('show');
     Route::resource('categories', AdminCategoryController::class)->except('show');
+    Route::resource('downloads', AdminDownloadController::class)->except('show');
     Route::resource('brands', AdminBrandController::class)->except('show');
     Route::resource('testimonials', AdminTestimonialController::class)->except('show');
     Route::resource('projects', AdminProjectController::class)->except('show');

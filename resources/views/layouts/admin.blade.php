@@ -6,6 +6,7 @@
         ['Products', '/dashboard/products', 'dashboard/products*', 'box'],
         ['Categories', '/dashboard/categories', 'dashboard/categories*', 'tag'],
         ['Brands', '/dashboard/brands', 'dashboard/brands*', 'award'],
+        ['Pricelist & Katalog', '/dashboard/downloads', 'dashboard/downloads*', 'file'],
         'Content',
         ['Testimonials', '/dashboard/testimonials', 'dashboard/testimonials*', 'message'],
         ['Articles', '/dashboard/articles', 'dashboard/articles*', 'file'],
@@ -25,6 +26,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>@yield('title', 'Admin') · Top Sains</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">

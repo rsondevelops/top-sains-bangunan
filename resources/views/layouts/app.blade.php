@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Top Sains Bangunan: Sanitary & TOTO di Bogor')</title>
+    <title>@yield('title', 'Top Sains Bangunan: Sanitary & TOTO Bogor')</title>
     <meta name="description" content="@yield('description', 'Katalog dan showroom sanitary TOTO di Bogor. Melayani rumah, renovasi, dan proyek di Bogor, Jakarta, dan BSD.')">
     <link rel="canonical" href="{{ url()->current() }}">
     <script>document.documentElement.classList.add('js')</script>
-
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
     <link rel="preload" href="{{ asset('fonts/instrument-sans-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/site.css') }}?v={{ filemtime(public_path('css/site.css')) }}" rel="stylesheet">

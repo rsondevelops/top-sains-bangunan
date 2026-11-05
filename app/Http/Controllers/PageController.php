@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  App\Models\Download;
 use App\Models\Product;
 
 class PageController extends Controller
@@ -48,6 +48,13 @@ class PageController extends Controller
                 'Untuk kebutuhan proyek atau perumahan di area BSD, sampaikan jumlah unit dan lokasi lewat form Request Quotation.',
             ],
         ],
+        'faq' => [
+            ['Di mana toko TOTO Bogor?', 'Top Sains Bangunan berada di Jl. Raya Tajur No.202, Tajur, Kec. Bogor Selatan, Kota Bogor.'],
+            ['Jam buka toko?', 'Setiap hari pukul 08:00-17:00.'],
+            ['Bagaimana cara tahu harga produk TOTO?', 'Buka halaman Pricelist & Katalog, atau tanyakan kode produknya lewat WhatsApp. Harga dan ketersediaan bisa berubah.'],
+            ['Apakah melayani proyek dan kontraktor?', 'Ya. Kirim daftar kebutuhan lewat form Request Quotation, tim kami menyiapkan penawaran.'],
+            ['Bisa membantu mencarikan spare part?', 'Bisa. Kirim foto atau kode produk lama Anda lewat WhatsApp.'],
+        ],
     ];
 
     public function afterSales() { return view('pages.after-sales'); }
@@ -61,5 +68,12 @@ class PageController extends Controller
             ->orderBy('sort_order')->take(4)->get();
 
         return view('pages.local', ['page' => self::LOCAL[$slug], 'slug' => $slug, 'products' => $products]);
+    }
+
+    public function downloads()
+    {
+        return view('pages.downloads', [
+            'groups' => Download::where('is_active', true)->orderBy('sort_order')->latest()->get()->groupBy('type'),
+        ]);
     }
 }
